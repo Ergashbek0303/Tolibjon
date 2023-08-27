@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- Created By CodingNepal - www.codingnepalweb.com -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Neumorphism Profile Card | CodingNepal</title>
+    <link rel="stylesheet" href="{% static 'users/css/profile_style.css' %}">
+</head>
+<body style="flex-direction: column;justify-content: space-around;">
+    {% if user.is_authenticated %}
+        {% if obj %}
+            {% for o in obj %}
+            <div class="wrapper item"> <!-- Add the 'item' class here -->
+                <div class="name">{{ o.product.name }}</div><br>
+                <div class="about">Quantity : {{ o.quantity }}</div><br>
+                <div class="about">Price : {{ o.sum }}</div><br>
+                <div class="buttons" >        
+                <button onclick="location.href='{% url 'basket_remove' o.id%}'">Remove</button>
+                <button onclick="location.href='{% url 'basket_add' o.product.product_id%}'">+</button>
+                <button onclick="location.href='{% url 'basket_minus' o.product.product_id%}'">-</button>
+                </div>
+            </div>
+            {% endfor %} 
+            <div class="wrapper item" style=" margin-bottom: 20px;">
+                <div class="name">Total cost : ${{ ts }}</div><br>
+                <div class="name">Total quantity : {{ tq }}</div><br>
+                <div class="buttons" >        
+                    <button onclick="location.href='{% url 'payment' %}'">Payment</button>
+                </div>
+            </div>  
+        {% else %}
+            <div class="wrapper">
+                <div class="name">Your basket is empty</div><br>
+                <div class="buttons">
+                    <button onclick="location.href='{% url 'home' %}'">Home</button>
+                </div>
+            </div>
+        {% endif %} 
+    {% else %}
+        <div class="wrapper" >
+            <div class="name">You are not logged in</div><br>
+            <div class="buttons">
+                <button onclick="location.href='{% url 'home' %}'">Home</button>
+                <button onclick="location.href='{% url 'login' %}'">Login</button>
+            </div>
+        </div>
+    {% endif %}
+</body>
+</html>

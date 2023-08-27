@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Walnut Monitor Stand</title>
+  <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+</head>
+
+<body>
+  <div class="magsafe">
+    <div class="magsafe__inner container">
+      <div style="width: 65%;">
+        <img class="magsafe__left"
+          src="https://grovemade.imgix.net/https%3A%2F%2Fgrovemade.com%2Fshop-static%2Fshop%2Fvariant%2Fwalnut-desk-collection-monitor-stand-grid-B4_6574J6D.jpg%3F_v%3D1624507958.6318471?auto=format&ixlib=python-1.1.2&w=900&s=d5083b5520e581fbb9086ebaaebe1d1b" alt="">
+      </div>
+      <div class="magsafe__right">
+        <p class="wood">Walnut Monitor Stand</p>
+        <p class="walnut">Walnut</p>
+        <div class="a">
+        </div>
+        <p class="price">$100</p>
+        <a class="button__add" href="{% url 'basket_add' 4 %}">ADD A CARD</a>
+        <p class="ship__date">Ships In 2-3 Weeks</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

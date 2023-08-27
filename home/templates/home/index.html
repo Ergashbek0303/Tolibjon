@@ -1,0 +1,235 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GROVEMADE</title>
+  <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+  <link rel="icon" href="{% static 'home/css/img/logo1.svg' %}" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Arvo&family=Bebas+Neue&family=Bitter&family=Comfortaa&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Fredoka+One&family=IBM+Plex+Sans:wght@700&family=Irish+Grover&family=Josefin+Sans:wght@300&family=Lato:wght@700&family=Montserrat:wght@400;500&family=Poppins:wght@300;400;500;600;800&family=Roboto+Condensed:ital,wght@1,300&family=Roboto:wght@300;400;500;700;900&family=Slabo+27px&family=Zen+Kurenaido&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+</head>
+
+<script>
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+  </script>
+
+<body>
+  <div class="container">
+    <nav class="nav">
+      <div class="nav__left__side">
+        <a class="nav__left__side__link" href="{% url 'basket' %}">Shop</a>
+         
+        <a class="nav__left__side__link" href="{% url 'register' %}">Sign up</a>
+      </div>
+      <img class="nav__logo" src="{% static 'home/css/img/logo.jpg' %}" alt="" />
+      
+      <div class="nav__right__side">
+        {% csrf_token %}
+        {% if user.is_authenticated %}
+          <a class="nav__left__side__link" href="{% url 'logout' %}">Log Out</a>
+        {% else %}
+          <a class="nav__left__side__link"  href="{% url 'login' %}">Log in  </a>
+        {% endif %}
+        
+        <a class="nav__left__side__link"  href="{% url 'profile' %}"> My cart</a>
+      </div>
+      
+      
+    </nav>
+  </div>
+
+  <div class="main__description">
+    <p class="main__title">The Desk Shelf System</p>
+    <p class="main__name">Available in Walnut or Maple</p>
+    <p class="main__btn">LEARN MORE</p>
+  </div>
+
+
+  <div class="second__main">
+    <p class="second__main__title">Design Inspires</p>
+    <p class="second__main__description">
+      Build your dream workspace, so you can get your best work done.
+    </p>
+    <p class="second__main__btn">Get Started</p>
+  </div>
+
+  <div class="third__main container">
+    <div>
+      <img class="left__card" src="{% static 'home/css/img/desk pads.jpg' %}" alt="" />
+      <div class="third__main__description">
+        <p class="third__main__title">Desk Pads</p>
+        <p class="third__main__btn">Learn More</p>
+      </div>
+    </div>
+    <div>
+      <img class="right__card" src="{% static 'home/css/img/laptop stands.jpg' %}" alt="" />
+      <div class="third__main__description">
+        <p class="third__main__title">Laptop Stands</p>
+        <p class="third__main__btn">Learn More</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="fourth__main">
+    <div class="fourth__main__intro">
+      <p class="fourth__main__title">Featured Products</p>
+      <p class="fourth__main__description">See What’s Trending Right Now</p>
+      <div>
+        <img class="black__dots" src="{% static 'home/css/img/black dot.png' %}" alt="" />
+        <img class="black__dots" src="{% static 'home/css/img/black dot.png' %}" alt="" />
+        <img class="black__dots" src="{% static 'home/css/img/black dot.png' %}" alt="" />
+      </div>
+    </div>
+
+    <div class="cards container">
+      <div class="lak">
+       <a href="{% url 'product1' %}"> <img class="fm__card" src="{% static 'home/css/img/card1.jpg' %}" alt="error" /></a>
+        <div class="fm__card__description">
+          <a class="fm__card__title" href="{% url 'product1' %}">Walnut MagSafe Stand</a>
+          <p class="fm__card__price">$120</p>
+        </div>
+      </div>
+      <div class="lak">
+      <a href="{% url 'product2' %}"> <img class="fm__card" src="{% static 'home/css/img/card2.jpg' %}" alt="error" /></a>
+        <div class="fm__card__description">
+          <a class="fm__card__title" href="{% url 'product2' %}">Walnut Laptop Riser</a>
+          <p class="fm__card__price">$150</p>
+        </div>
+      </div>
+      <div class="lak">
+        <a href="{% url 'product3' %}"> <img class="fm__card" src="{% static 'home/css/img/card3.jpg' %}" alt="error" /></a>
+        <a class="fm__card__title" href="{% url 'product3' %}">Walnut iPad Stand</a>
+        <p class="fm__card__price">$80</p>
+      </div>
+      <div class="lak">
+       <a href="{% url 'product4' %}"> <img class="fm__card" src="{% static 'home/css/img/card4.jpg' %}" alt="error" /></a>
+        <a class="fm__card__title" href="{% url 'product4' %}">Walnut Monitor Stand</a>
+        <p class="fm__card__price">$100</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="fifth__main">
+    <div class="fifth__main__description">
+      <p class="fifth__main__title">Home Office Inspiration</p>
+      <p class="fifth__main__about">
+        Working from home can be a challenge—see some creative solutions to
+        get it just right.
+      </p>
+      <p class="fifth__main__btn">LEARN MORE</p>
+    </div>
+  </div>
+
+  <div class="sixth__main container">
+    <p class="sixth__main__title">Made The Hard Way</p>
+    <p class="six__main__description">
+      Our signature craftsmanship has been honed over a decade of
+      manufacturing innovation here in <br />
+      Portland, Oregon. We combine the skills of our small in-house team with
+      the collective strength of <br />
+      collaborators throughout the US to deliver quality products worth
+      investing in.
+    </p>
+    <img class="home__photo" src="{% static 'home/css/img/home.jpg' %}" alt="" />
+    <p class="sixth__main__title">Make Work Meaningful</p>
+    <p class="sixth__main__description">
+      We're here because we believe that your work deserves the best. A team
+      that loves working together <br />
+      is the magic that makes it all happen.
+    </p>
+  </div>
+
+
+  <div class="column container">
+    <img class="photos" src="{% static 'home/css/img/1.jpg' %}" alt="error" />
+    <img class="photos" src="{% static 'home/css/img/2.jpg' %}" alt="error" />
+    <img class="photos" src="{% static 'home/css/img/3.jpg' %}" alt="error" />
+    <img class="photos" src="{% static 'home/css/img/4.jpg' %}" alt="error" />
+    <img class="photos" src="{% static 'home/css/img/5.jpg' %}" alt="error" />
+    <img class="photos" src="{% static 'home/css/img/6.jpg' %}" alt="error" />
+    <img class="photos" src="{% static 'home/css/img/7.jpg' %}" alt="error" />
+    <img class="photos" src="{% static 'home/css/img/8.jpg' %}" alt="error" />
+    <img class="photos" src="{% static 'home/css/img/9.jpg' %}" alt="error" />
+    <img class="photos" src="{% static 'home/css/img/10.jpg' %}" alt="error" />
+    <img class="photos" src="{% static 'home/css/img/11.jpg' %}" alt="error" />
+    <img class="photos" src="{% static 'home/css/img/12.jpg' %}" alt="error" />
+    <img class="photos" src="{% static 'home/css/img/13.jpg' %}" alt="error" />
+    <img class="photos" src="{% static 'home/css/img/14.jpg' %}" alt="error" />
+    <img class="photos" src="{% static 'home/css/img/15.jpg' %}" alt="error" />
+    <img class="photos" src="{% static 'home/css/img/16.jpg' %}" alt="error" />
+    <img class="photos" src="{% static 'home/css/img/17.jpg' %}" alt="error" />
+    <img class="photos" src="{% static 'home/css/img/18.jpg' %}" alt="error" />
+    <img class="photos" src="{% static 'home/css/img/19.jpg' %}" alt="error" />
+    <img class="photos" src="{% static 'home/css/img/20.jpg' %}" alt="error" />
+    <img class="photos" src="{% static 'home/css/img/21.jpg' %}" alt="error" />
+    <img class="photos" src="{% static 'home/css/img/22.jpg' %}" alt="error" />
+    <img class="photos" src="{% static 'home/css/img/23.jpg' %}" alt="error" />
+    <img class="photos" src="{% static 'home/css/img/24.jpg' %}" alt="error" />
+  </div>
+
+  <div class="seventh__main">
+    <p class="seventh__main__title">We Hope You'll Join Us</p>
+    <p class="seventh__main__description">READ MORE ABOUT OUR STORY</p>
+    <div class="bgc__color__grey container">
+      <img class="bgc__logo" src="{% static 'home/css/img/logo1.svg' %}" alt="error" />
+      <p class="bgc__title">Design Inspires</p>
+      <p class="bgc__description">
+        Build your dream workspace, so you can get your best work done.
+      </p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <button onclick="scrollToTop()" class="go__up"> GO UP</button>
+    <div class="footer__shokir">
+      <div class="footer__menu">
+        <ul class="container ul">
+          <a  href="{% url 'basket' %}"><li class="li">Shop</li></a>
+          <li class="li">About</li>
+          <li class="li">Journal</li>
+          <li class="li">Support</li>
+          <li class="li">COVID-19 Info</li>
+          <li class="li">Order Status</li>
+          <li class="li">Corporate Sales</li>
+        </ul>
+      </div>
+      <div class="footer__chtoto">
+        <p class="footer__title">Newsletter Signup</p>
+        <p class="footer__description">
+          Sign up to our Newsletter to hear about new <br />
+          product releases, learn about our design process, <br />
+          and everything else going on behind the scenes at <br />
+          Grovemade.
+        </p>
+        <hr>
+      </div>
+    </div>
+    <div class="footer__finish container">
+      <div class="icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <div>
+        <a class="footer__menu" href="#">©2020 Grovemade</a>
+        <a class="footer__menu" href="#">Terms & Conditions</a>
+        <a class="footer__menu" href="#">Privacy Policy</a>
+        <a class="footer__menu" href="#">Site by Department</a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

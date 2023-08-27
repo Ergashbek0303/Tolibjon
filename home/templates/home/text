@@ -1,0 +1,9 @@
+{% for o in obj %}
+    <div>
+        <h3>{{ o.product.name }}</h3>
+        <h4>Quantity : {{ o.quantity }}</h4>
+        <h4>Amount per unit {{ o.product.price }}</h4>
+    </div>
+    <a href="{% url 'basket_remove' o.id %}"><button>Remove</button></a>
+    <p>---------------------------------------------</p>
+    {% endfor %}
