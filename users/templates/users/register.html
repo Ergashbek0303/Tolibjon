@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- Designined by CodingLab - youtube.com/codinglabyt -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link rel="stylesheet" href="{% static 'users/css/style.css' %}">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+    <div class="container">
+      <div class="title">Registration</div>
+      <div class="content">
+
+        <form action="{% url 'register' %}" method="POST">
+
+          {% csrf_token %}
+          {{ form.errors }}
+          {{ form.non_field_errors }}
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details">Firstname</span>
+              {{ form.firstname }}
+            </div>
+            <div class="input-box">
+              <span class="details">Lastname</span>
+              {{ form.lastname }}
+            </div>
+            <div class="input-box">
+              <span class="details">Username</span>
+              {{ form.username }}
+            </div>
+            <div class="input-box">
+              <span class="details">Email</span>
+              {{ form.email }}
+            </div>
+            <div class="input-box">
+              <span class="details">Password</span>
+              {{ form.password1 }}
+            </div>
+            <div class="input-box">
+              <span class="details">Confirm Password</span>
+              {{ form.password2 }}
+            </div>
+          </div>
+          
+          <div class="button">
+            <input type="submit" value="Register">
+          </div>
+        </form>
+      </div>
+    </div>
+</body>
+</html>
